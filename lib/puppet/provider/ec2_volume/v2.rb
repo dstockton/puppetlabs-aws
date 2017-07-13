@@ -80,7 +80,7 @@ Puppet::Type.type(:ec2_volume).provide(:v2, :parent => PuppetX::Puppetlabs::Aws)
     if (resource[:attach].has_key?("delete_on_terminate") ? resource[:attach]["delete_on_terminate"] : false) then
       config = {}
       config[:instance_id] = resource[:attach]["instance_id"]
-      config[:block_device_mappings] = [{"DeviceName": resource[:attach]["device"], "Ebs": { "DeleteOnTermination": true } }]
+      config[:block_device_mappings] = [{"DeviceName"=> resource[:attach]["device"], "Ebs"=> { "DeleteOnTermination"=> true } }]
       ec2.modify_instance_attribute(config)
     end
   end
