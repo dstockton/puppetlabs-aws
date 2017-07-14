@@ -36,6 +36,7 @@ Puppet::Type.type(:ec2_volume).provide(:v2, :parent => PuppetX::Puppetlabs::Aws)
       {
         instance_id: att.instance_id,
         device: att.device,
+        delete_on_termination: att.delete_on_termination
       }
     end
     config = {
